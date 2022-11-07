@@ -22,11 +22,12 @@ const Login = ({navigation}) => {
                     <TextInputComp
                         title='Login'
                         placeholder='E-mail Address'
+                        
                     />
                     <TextInputComp
                         placeholder='Password'
                     />
-                     <View>
+                     <View style={{alignSelf:"flex-end"}}>
                      <TouchableOpacity>
                         <Text style={styles.txtStyle}>Forget Password</Text>
                     </TouchableOpacity>

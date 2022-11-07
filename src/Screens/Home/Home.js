@@ -24,7 +24,7 @@ const Home = () => {
   }
   const toggleBar = ()=> {
     return(
-      <View style={{flexDirection:'row', height:moderateVerticalScale(48),justifyContent:'space-between',  alignItems:'center', paddingHorizontal:moderateScale(10)}} >
+      <View style={styles.toggleBarStyle} >
         {[{id:1,title:'Daily'},{id:2,title:'Monthly'},{id:3,title:'Weekly'}].map(i =>{
           return(
             <TouchableOpacity onPress={()=>onTabPress(i)} key={i?.id} style={{marginRight:10,backgroundColor: slectedTab?.id == i?.id ?colors.lightBlue : colors.bglightGrey,  paddingVertical:moderateVerticalScale(8), paddingHorizontal:moderateScale(14),justifyContent:'center',alignItems:'center' , borderRadius:moderateScale(8)}} >
@@ -35,7 +35,6 @@ const Home = () => {
       </View>
     )
   } 
-
   const rendertasks = ({item }) => {
     return (
       <View style={{flexDirection:'row', alignItems:'center', width:'100%', height:moderateScale(55), backgroundColor:colors.white, paddingLeft:moderateScale(25), justifyContent:'space-between'}} >

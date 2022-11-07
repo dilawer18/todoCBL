@@ -5,24 +5,28 @@ import colors from '../styles/colors'
 
 
 const TextInputComp = ({
-    img='',
+    img ,
     title = '',
     value = '',
     onchangeText = () => { },
-    placeholder = '', }) => {
+    placeholder = '',
+    Styles,
+    imageStyle
+}) => {
     return (
         <View>
-            <Text style={styles.textStyle}>{title}</Text>
-            <View style={styles.container}>
-            <TextInput
-                value={value}
-                onChangeText={onchangeText}
-                placeholder={placeholder}
-            />
-               <TouchableOpacity>
-               <Image source={img}/>
-               </TouchableOpacity>
-            
+            <Text style={{...styles.textStyle,...Styles}}>{title}</Text>
+            <View style={{...styles.container,...Styles}}>
+                <TextInput
+                    // value={value}
+                    onChangeText={onchangeText}
+                    placeholder={placeholder}
+                />
+                <TouchableOpacity >
+                    
+                    <Image style={imageStyle} source={img} />
+                </TouchableOpacity>
+
             </View>
         </View>
     )
@@ -31,19 +35,19 @@ const TextInputComp = ({
 export default TextInputComp
 
 const styles = StyleSheet.create({
-    container:{
-        height:moderateScale(48),
-        marginTop:moderateScale(10),
-        flexDirection:'row',
-        justifyContent:'space-between',
-        backgroundColor:colors.white,
-        borderRadius:8,
-        padding:moderateScale(14)
-        
+    container: {
+        height: moderateScale(48),
+        marginTop: moderateScale(10),
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: colors.white,
+        borderRadius: 8,
+        padding: moderateScale(14)
+
     },
-    textStyle:{
+    textStyle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color:colors.primaryColor
+        color: colors.primaryColor
     }
 })

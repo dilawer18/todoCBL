@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
         
     },
     txtStyle:{
-    textAlign:'right',
     marginTop:10,
     marginBottom:20,
     

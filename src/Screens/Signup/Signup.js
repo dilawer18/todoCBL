@@ -32,7 +32,7 @@ const Signup = ({ navigation }) => {
                         placeholder='Password'
                     // img={imagePath.icVissibleOf}
                     />
-                    <View>
+                    <View style={{alignSelf:"flex-end"}}>
                         <TouchableOpacity>
                             <Text style={styles.txtStyle}>Forget Password</Text>
                         </TouchableOpacity>

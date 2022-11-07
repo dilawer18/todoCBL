@@ -2,49 +2,52 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView, Image } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
+import ButtonComp from '../../Components/ButtonComp';
 import HeaderComp from '../../Components/HeaderComp';
+import WrapperContainer from '../../Components/WrapperContainer';
 import imagePath from '../../constants/imagePath';
 import navigationStrings from '../../constants/navigationStrings';
+import { moderateScale, moderateVerticalScale } from '../../styles/responsiveSize';
+import styles from './styles';
 
-// create a component
-const Onboarding = ({navigation}) => {
+const Onboarding = ({ navigation }) => {
     return (
-        <SafeAreaView style={styles.container}>
+        <WrapperContainer >
             <HeaderComp
-            text='Todoist'
+                text='Todoist'
             />
-            <Swiper>
+            <Swiper 
+            dotStyle={{height:4,width:50}}
+            activeDotStyle={{height:4,width:50}}
+            >
                 <View>
-                    <Image source={imagePath.icFirstOnboard}/>
+                    <Image source={imagePath.icFirstOnboard} />
                     <Text>Manage Task</Text>
                 </View>
                 <View>
-                <Image source={imagePath.icSecondOnboard}/>
-                <Text>Manage Task</Text>
+                    <Image source={imagePath.icSecondOnboard} />
+                    <Text>Manage Task</Text>
                 </View>
                 <View>
-                <Image source={imagePath.icThird}/>
-                <Text>Manage Task</Text>
+                    <Image source={imagePath.icThird} />
+                    <Text>Manage Task</Text>
                 </View>
             </Swiper>
-            <Button
-            title='Login'
-            onPress={()=>{navigation.navigate(navigationStrings.LOGIN)}}
+            <ButtonComp
+                btnText='Sign Up'
             />
-        </SafeAreaView>
+            <View style={styles.endFlexStyle}>
+                <Text >Don't have an account? </Text>
+                <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.SIGNUP)} >
+                    <Text style={styles.endTextStyle}>Sign Up</Text>
+                </TouchableOpacity>
+
+            </View>
+
+        </WrapperContainer>
     );
 };
 
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-       
-     
-    },
-});
-
-//make this component available to the app
 export default Onboarding;
