@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import colors from "../../styles/colors";
-import { moderateScale, textScale } from "../../styles/responsiveSize";
+import { moderateScale, moderateVerticalScale, textScale } from "../../styles/responsiveSize";
 
 export default styles = StyleSheet.create({
     container:{
@@ -19,13 +19,34 @@ export default styles = StyleSheet.create({
     headerStyle:{
         justifyContent:"flex-start"
     },
-    noteStyle:{
-        height:200,
-        alignItems:'flex-start',
+    lineStyle:{
+        // height:200,
+       
+        borderWidth:0.5,
+        width:'90%',
+        alignSelf:'center',
+        borderColor:colors.bglightGrey
 
     },imageStyle:{
         transform:[{rotate:'180deg'}]
     },
+    textInputStyle:{
+        backgroundColor:'white',
+        height:300,
+        marginTop:24,
+        borderRadius:14
+    },
+    detailViewStyle:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        height:moderateVerticalScale(48),
+        backgroundColor:colors.white,
+        borderRadius:8,
+        marginTop:moderateVerticalScale(10),
+        alignItems:'center',
+        padding:moderateScale(10)
+    }
+    
     
 
 })

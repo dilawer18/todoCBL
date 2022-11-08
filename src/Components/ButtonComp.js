@@ -11,7 +11,7 @@ const ButtonComp = ({
         btnTextStyle ={},
     }) => {
     return (
-        <TouchableOpacity style={{...styles.container,...btnWrapperStyle}}
+        <TouchableOpacity  style={{...styles.container,...btnWrapperStyle}}
             onPress={onPress}>
             <Text style={{...styles.textStyle,...btnTextStyle }}>{btnText}</Text>
         </TouchableOpacity>

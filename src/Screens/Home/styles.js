@@ -30,6 +30,30 @@ export default styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: moderateScale(10)
+    },renderTaskStyle:{
+        flexDirection: 'row',
+         alignItems: 'center', 
+         width: '100%', 
+         height: moderateScale(55), 
+         backgroundColor: colors.white, 
+         paddingLeft: moderateScale(25), 
+         justifyContent: 'space-between' 
+    },
+    imageStyle:{
+        transform: [{ rotate: '180deg' }]
+    },
+    itemViewStyle:{
+        flexDirection: 'row',
+         alignItems: 'center',
+          justifyContent: 'space-between', 
+          paddingRight: moderateScale(10)
+    },
+    itemTimeStyle:{
+        backgroundColor: colors.lightOrange, 
+        paddingVertical: moderateVerticalScale(5),
+         marginRight: moderateScale(10), 
+         paddingHorizontal: moderateScale(10),
+          borderRadius: moderateScale(5) 
     }
 },
 

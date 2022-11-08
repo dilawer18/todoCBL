@@ -1,8 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Routes from './src/Navigation/Routes'
+import { getLang } from './src/utils/utils';
+import strings from './src/constants/lang';
 
 const App = () => {
+
+  // useEffect(() => {
+  // getCurrLang();
+  // }, []);
+
+  // const getCurrLang = async () => {
+  //   let curr_lang = await getLang();
+  //   strings.setLanguage(curr_lang)
+  //   console.log(curr_lang, 'curr langugae ===>>>>>');
+  //   console.log(strings.getLanguage(), 'get language ==>>>>>>');
+  //   console.log(strings.HELLO, 'currrenty strings ===>>>>>>>');
+  // }
+
+
   return (
     <>
     <Routes/>
@@ -12,10 +28,10 @@ const App = () => {
 
 export default App
 
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  }
-})
+// const styles = StyleSheet.create({
+//   container:{
+//     flex:1,
+//     justifyContent:'center',
+//     alignItems:'center'
+//   }
+// })
