@@ -9,35 +9,38 @@ import WrapperContainer from '../../Components/WrapperContainer'
 import { moderateScale } from '../../styles/responsiveSize'
 import colors from '../../styles/colors'
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
     return (
         <WrapperContainer WrapperPadding={moderateScale(24)} bgColor={colors.bglightGrey} statusBarColor={colors.bglightGrey}  >
-               <HeaderComp
-                    text='Todoist'
-                />
+            <HeaderComp
+                text='Todoist'
+            />
 
             <View style={styles.container}>
-             
+
                 <View style={styles.inputStyle}>
-                    <TextInputComp
-                        title='Login'
-                        placeholder='E-mail Address'
-                        
-                    />
+                    <View style={{ marginVertical: moderateScale(10) }} >
+                        <TextInputComp
+                        Styles={{marginBottom:moderateScale(10)}}
+                            title='Login'
+                            placeholder='E-mail Address'
+
+                        />
+                    </View>
                     <TextInputComp
                         placeholder='Password'
                     />
-                     <View style={{alignSelf:"flex-end"}}>
-                     <TouchableOpacity>
-                        <Text style={styles.txtStyle}>Forget Password</Text>
-                    </TouchableOpacity>
-                     </View>
+                    <View style={{ alignSelf: "flex-end" }}>
+                        <TouchableOpacity>
+                            <Text style={styles.txtStyle}>Forget Password</Text>
+                        </TouchableOpacity>
+                    </View>
                     <ButtonComp
                         btnText='Login'
-                        onPress={()=>alert('inprocess')}
+                        onPress={() => alert('inprocess')}
                     />
                 </View>
-        
+
                 <View style={styles.endFlexStyle}>
                     <Text >Don't have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.SIGNUP)} >
