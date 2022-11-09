@@ -11,10 +11,18 @@ import ButtonComp from '../../Components/ButtonComp'
 import navigationStrings from '../../constants/navigationStrings'
 import Modal from "react-native-modal";
 
-const AddTask = ({navigation}) => {
+const AddTask = ({navigation,route}) => {
+  const[title , settitle]=useState('')
+  const[notes , setnotes]=useState('')
+
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+    setModalVisible(!isModalVisible)
+ 
+  };
+  const toggleModal1 = () => {
+    setModalVisible(!isModalVisible)
+    navigation.navigate(navigationStrings.HOME,[{title:title,notes:notes}])
   };
 
   return (
@@ -30,10 +38,15 @@ const AddTask = ({navigation}) => {
       </View>
      <View style={styles.textInputStyle}>
         <TextInputComp
-          placeholder='Title' />
+        value={title}
+          placeholder='Title' 
+          onchangeText={(value)=>settitle(value)}
+          />
           <View style={styles.lineStyle}/>
            <TextInputComp 
+            value={notes}
           placeholder='Notes'
+          onchangeText={(value)=>setnotes(value)}
         />
         </View>
         <View style={styles.detailViewStyle}>
@@ -66,7 +79,7 @@ const AddTask = ({navigation}) => {
                     alignSelf:"center",
                     
                     }}>
-                <TouchableOpacity onPress={toggleModal}
+                <TouchableOpacity onPress={toggleModal1}
                 
                 style={{
                     padding:moderateScale(30),

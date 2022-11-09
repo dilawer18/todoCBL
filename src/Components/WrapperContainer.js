@@ -9,12 +9,13 @@ const WrapperContainer = ({
   statusBarColor = colors.white,
   barStyle = 'dark-content',
   WrapperPadding = 0,
+  mainContainer
 }) => {
   return (
     <>
       <SafeAreaView style={{flex: 1, backgroundColor: statusBarColor}}>
         <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
-        <View style={{backgroundColor: bgColor,  flex: 1, padding:WrapperPadding}}>{children}</View>
+        <View style={{backgroundColor: bgColor,  flex: 1, padding:WrapperPadding, ...mainContainer}}>{children}</View>
       </SafeAreaView>
     </>
   );
