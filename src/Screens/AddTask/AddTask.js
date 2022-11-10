@@ -11,8 +11,15 @@ import ButtonComp from '../../Components/ButtonComp'
 import navigationStrings from '../../constants/navigationStrings'
 import Modal from "react-native-modal";
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import store from '../../redux/store'
+import {useSelector} from  "react-redux"
+import { todo } from '../../redux/action'
 
 const AddTask = ({ navigation, route }) => {
+
+  const data =useSelector(myData=>myData.todoData)
+  // console.log("this is todo data globaly",data)
+
   const [title, settitle] = useState('')
   const [notes, setnotes] = useState('')
 
@@ -22,8 +29,10 @@ const AddTask = ({ navigation, route }) => {
 
   };
   const toggleModal1 = () => {
+
     setModalVisible(!isModalVisible)
-    navigation.navigate(navigationStrings.HOME, [{ title: title, notes: notes }])
+    store.dispatch(todo({title,notes}))
+    navigation.navigate(navigationStrings.HOME,)
   };
 
   return (
@@ -35,6 +44,7 @@ const AddTask = ({ navigation, route }) => {
           headerStyle={styles.headerStyle}
           image={imagePath.icBackward}
           text='New Reminder'
+        
         />
       </View>
       <View style={styles.container}>
@@ -42,14 +52,22 @@ const AddTask = ({ navigation, route }) => {
           Styles={{}}
           value={title}
           placeholder='Title'
-          onchangeText={(value) => settitle(value)}
+          onchangeText={(title)=>{
+            settitle(title)
+           
+          }}
+          
         />
         <View style={{ borderBottomWidth: moderateScale(2), borderBottomColor: colors.bglightGrey, marginHorizontal: moderateScale(10), }} />
         <TextInputComp
           // Styles={{ height: '60%' }}
           value={notes}
           placeholder='Notes'
-          onchangeText={(value) => setnotes(value)}
+       
+          onchangeText={(notes)=>{
+            setnotes(notes)
+           
+          }}
         // placeholderTextColor='red'
         />
       </View>

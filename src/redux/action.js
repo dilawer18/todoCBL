@@ -1,9 +1,9 @@
 import types from "./types";
 
-export function increment(data, data2) {
+export function todo(data) {
     return {
         type: types.ADD_TODO,
-        payload: { quantity: data,}
+        payload: data
     }
 }
 

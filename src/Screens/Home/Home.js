@@ -25,6 +25,7 @@ import strings from '../../constants/lang';
 import { getLang, storeLang } from '../../utils/utils';
 import RNRestart from 'react-native-restart';
 import * as Progress from 'react-native-progress';
+import { useSelector } from 'react-redux';
 // import 'react-circular-progressbar/dist/styles.css';
 const Home = ({ navigation, route }) => {
   const [slectedTab, setSlectedTab] = useState({});
@@ -32,19 +33,9 @@ const Home = ({ navigation, route }) => {
   // const [langChanged, setLangChanged] = useState(false);
   // const [openModal, setOpenModal] = useState(false);
 
-  const [data, setdata] = useState([])
-  console.log("console====>>>>>>", data)
-
-  useEffect(() => {
-    fetchData()
-  }, [route.params])
-
-
-  const fetchData = () => {
-    const ParamData = route.params
-    console.log("data in param data", ParamData)
-    setdata(ParamData)
-  }
+  const data = useSelector(myData=>myData.todoData)
+  console.log("this is data in HOme Screen",data)
+  
 
   const [alltask, setAlltask] = useState([
     { id: 1, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm' },
@@ -210,7 +201,7 @@ const Home = ({ navigation, route }) => {
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View style={{flex:1}}>
         <FlatList
           data={data}
           renderItem={rendertasks}

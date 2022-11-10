@@ -11,7 +11,7 @@ const HeaderComp = ({
 }) => {
     return (
         <View style={{ ...styles.container, ...headerStyle }}>
-            <Image source={image} />
+            <Image  source={image} />
 
             <Text style={{ ...styles.textStyle, ...textStyles }}>{text}</Text>
 

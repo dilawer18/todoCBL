@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import Routes from './src/Navigation/Routes'
 import { getLang } from './src/utils/utils';
 import strings from './src/constants/lang';
+import store from './src/redux/store';
+import {Provider} from "react-redux"
 
 const App = () => {
 
@@ -20,9 +22,12 @@ const App = () => {
 
 
   return (
-    <>
+   <>
+    <Provider store ={store}>
     <Routes/>
+    </Provider>
     </>
+  
   )
 }
 
