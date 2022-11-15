@@ -8,7 +8,7 @@ import {
   Modal,
   Button,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import WrapperContainer from '../../Components/WrapperContainer';
 import colors from '../../styles/colors';
 import {
@@ -20,28 +20,27 @@ import {
 import styles from './styles';
 import imagePath from '../../constants/imagePath';
 import ButtonComp from '../../Components/ButtonComp';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import {CircularProgressbar} from 'react-circular-progressbar';
 import strings from '../../constants/lang';
-import { getLang, storeLang } from '../../utils/utils';
+import {getLang, storeLang} from '../../utils/utils';
 import RNRestart from 'react-native-restart';
 import * as Progress from 'react-native-progress';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 // import 'react-circular-progressbar/dist/styles.css';
-const Home = ({ navigation, route }) => {
+const Home = ({navigation, route}) => {
   const [slectedTab, setSlectedTab] = useState({});
   // const [progress, setProgress] = useState(0.3);
   // const [langChanged, setLangChanged] = useState(false);
   // const [openModal, setOpenModal] = useState(false);
 
-  const data = useSelector(myData=>myData.todoData)
-  console.log("this is data in HOme Screen",data)
-  
+  const data = useSelector(myData => myData.todoData);
+  console.log('this is data in HOme Screen', data);
 
   const [alltask, setAlltask] = useState([
-    { id: 1, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm' },
-    { id: 2, title: 'lorem ipsum', time: '4:00 pm - 5:00 pm' },
-    { id: 3, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm' },
-    { id: 4, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm' },
+    {id: 1, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm'},
+    {id: 2, title: 'lorem ipsum', time: '4:00 pm - 5:00 pm'},
+    {id: 3, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm'},
+    {id: 4, title: 'lorem ipsum', time: '3:00 pm - 4:00 pm'},
   ]);
   const percentage = 66;
 
@@ -52,9 +51,9 @@ const Home = ({ navigation, route }) => {
     return (
       <View style={styles.toggleBarStyle}>
         {[
-          { id: 1, title: 'Daily' },
-          { id: 2, title: 'Monthly' },
-          { id: 3, title: 'Weekly' },
+          {id: 1, title: 'Daily'},
+          {id: 2, title: 'Monthly'},
+          {id: 3, title: 'Weekly'},
         ].map(i => {
           return (
             <TouchableOpacity
@@ -97,12 +96,12 @@ const Home = ({ navigation, route }) => {
   //   setLangChanged(false)
   // }
 
-  const rendertasks = ({ item }) => {
+  const rendertasks = ({item}) => {
     return (
       <View style={styles.renderTaskStyle}>
         <View>
-          <Text style={{ color: colors.primaryColor }}>{item?.title}</Text>
-          <Text style={{ color: colors.primaryColor }}>{item?.notes}</Text>
+          <Text style={{color: colors.primaryColor}}>{item?.title}</Text>
+          <Text style={{color: colors.primaryColor}}>{item?.notes}</Text>
         </View>
         <View style={styles.itemViewStyle}>
           <View style={styles.itemTimeStyle}>
@@ -147,16 +146,16 @@ const Home = ({ navigation, route }) => {
             justifyContent: 'space-around',
           }}>
           <Text>Daily Tasks</Text>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{flexDirection: 'row'}}>
             <Image source={imagePath.icRoundTick} />
             <Text>
-              <Text style={{ color: colors.green }}> 5/10 </Text> Tasks Completed
+              <Text style={{color: colors.green}}> 5/10 </Text> Tasks Completed
             </Text>
           </View>
           <View>
             <ButtonComp
-              btnTextStyle={{ fontSize: textScale(12) }}
-              btnWrapperStyle={{ height: moderateVerticalScale(35) }}
+              btnTextStyle={{fontSize: textScale(12)}}
+              btnWrapperStyle={{height: moderateVerticalScale(35)}}
               btnText="View tasks"
             />
           </View>
@@ -167,7 +166,8 @@ const Home = ({ navigation, route }) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Progress.Circle
               size={moderateScale(90)}
               indeterminate={false}
@@ -183,7 +183,7 @@ const Home = ({ navigation, route }) => {
         </View>
       </View>
 
-      <View style={{ width: '80%', marginTop: moderateVerticalScale(18) }}>
+      <View style={{width: '80%', marginTop: moderateVerticalScale(18)}}>
         {toggleBar()}
       </View>
 
@@ -197,17 +197,17 @@ const Home = ({ navigation, route }) => {
         }}>
         <Text>Remainders</Text>
         <TouchableOpacity>
-          <Text style={{ color: colors.primaryColor }}>See All</Text>
+          <Text style={{color: colors.primaryColor}}>See All</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={{flex:1}}>
+      <View style={{flex: 1}}>
         <FlatList
           data={data}
           renderItem={rendertasks}
           extraData={item => `${item?.id}`}
           ItemSeparatorComponent={() => (
-            <View style={{ height: moderateScale(10) }} />
+            <View style={{height: moderateScale(10)}} />
           )}
         />
       </View>
