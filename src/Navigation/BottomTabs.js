@@ -21,6 +21,7 @@ const BottomTabs = () => {
                 }
             }} name={navigationStrings.HOME} component={Screens.Home} />
             <Tab.Screen options={{
+                tabBarStyle: { display: "none" },
                 tabBarIcon: ({ route, focused }) => {
                     return (
                         <Image style={{ tintColor: focused ? colors.primaryColor : null }} source={imagePath.icAlarm} />
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
             alignSelf: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-             paddingTop:moderateScale(26)
+            paddingTop: moderateScale(26)
         }
     }
 })
